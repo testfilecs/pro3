@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    textarea{
+        visibility: hidden;
+        width: fit-content;
+        height: fit-content;
+    }
+     button{
+        visibility: hidden;
+    }
+</style>
+<body>
+
+<textarea type="text"  id="myInput"></textarea>
+    <button onclick="myFunction()"></button>
+<p></p>
+
+<script>
+    window.addEventListener('load', ()=>{
+        document.querySelector("button").click()
+    })
+    
+document.addEventListener('click', function(event) {
+   myFunction()
+});
+    
+document.getElementById("myInput").value = `
+: Armstrong Numbers:
+using System;
+public class Armstrong
+{
+public static void Main(string[] args)
+{
+int a, b, c, d;
+for (int i = 1; i <= 1000; i++)
+{
+a = i / 100;
+b = (i - a * 100) / 10;
+c = (i - a * 100 - b * 10);
+d = a * a * a + b * b * b + c * c * c;
+if (i == d)
+{
+System.Console.WriteLine("{0}", i);
+}
+}
+}
+}
+Output:
+1
+153
+370
+371
+407
+1000
+
+`
+
+function myFunction() {
+  
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+console.log(copyText.value)
+}
+</script>
+
+</body>
+</html>
